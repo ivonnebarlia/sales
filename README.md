@@ -1,2 +1,2 @@
 # sales
-#app para gestionar ventas
+#app to manage sales
