@@ -1,0 +1,14 @@
+# pip3 install -r requirements.txt
+
+#Django==3.2
+psycopg2-binary==2.9.1
+django-rest-swagger==2.2.0
+djangorestframework==3.12.4
+urllib3==1.25.8
+jsonschema==3.2.0
+responses==0.10.12
+requests===2.23.0
+python3-logstash==0.4.80
+mock==4.0.3
+python-dateutil==2.8.1
+environs==9.3.1
