@@ -1,3 +1,4 @@
+
 """
 Django settings for sales project.
 
@@ -9,7 +10,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from environs import Env
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -70,13 +71,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'sales.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+with env.prefixed("DJANGO_DB_"):#por que pongo esto y cada cosa de abajo que no se para que es
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql'
+        'NAME': env.str('NAME'),
+        'USER': env.str('USER'),
+        'PASSWORD': env.str('PASSWORD'),
+        'CONN_MAX_AGE': env.int('CONN_MAX_AGE', 30),
+        'HOST': env.str('HOST', '127.0.0.1'),
+        'PORT': env.int('PORT', 5432)
     }
 }
 
